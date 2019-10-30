@@ -11,11 +11,18 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
+    <ion-item *ngFor="let event of events">
+      <ion-icon [name]="'flash'" slot="start"></ion-icon>
+      <div class="item-note">
+        <h3>{{event.date | timeago}}</h3>
+        <h4>Symptoms:</h4>
+        <span *ngFor="let symptom of event.symptoms">{{symptom}}</span>
+        <h4>Pain Areas:</h4>
+        <span *ngFor="let area of event.areas">{{area}}</span>
+      </div>
       <div class="item-note" slot="end">
-        {{item.note}}
+        <h4>Severity:</h4>
+        {{event.severity}} out of 10
       </div>
     </ion-item>
   </ion-list>
