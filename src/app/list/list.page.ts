@@ -16,8 +16,8 @@ export class ListPage implements OnInit {
       const severity = Math.floor(Math.random() * 10);
       this.events.push({
         severity,
-        areas: [(Object.keys(MigrainePainAreasEnum)[Math.floor(Math.random() * Object.keys(MigrainePainAreasEnum).length)]) as any],
-        symptoms: [(Object.keys(MigraineSymptomsEnum)[Math.floor(Math.random() * Object.keys(MigraineSymptomsEnum).length)]) as any],
+        areas: [MigrainePainAreasEnum[(Object.keys(MigrainePainAreasEnum)[Math.floor(Math.random() * Object.keys(MigrainePainAreasEnum).length)]) as any]],
+        symptoms: [MigraineSymptomsEnum[(Object.keys(MigraineSymptomsEnum)[Math.floor(Math.random() * Object.keys(MigraineSymptomsEnum).length)]) as any]],
         date: new Date(),
         generalNotes: 'This is item #' + i
       });

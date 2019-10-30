@@ -2,7 +2,7 @@ export enum MigraineSymptomsEnum {
     Headache = 'Headache',
     Dizziness = 'Dizziness',
     Nausea = 'Dizziness',
-    LightSensitivity = 'LightSensitivity',
+    LightSensitivity = 'Light Sensitivity',
     Fatigue = 'Fatigue',
     NeckPain = 'NeckPain'
 }
