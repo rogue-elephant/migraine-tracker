@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IMigraineEvent } from '../models/migraine-event';
+import { MigrainePainAreasEnum } from '../models/migraine-areas';
+import { MigraineSymptomsEnum } from '../models/migraine-symptoms';
 
 @Component({
   selector: 'app-list',
@@ -7,15 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPage implements OnInit {
   private selectedItem: any;
-  public items: Array<{ severity: number, title: string; note: string; icon: string }> = [];
+  public events: IMigraineEvent[] = [];
   constructor() {
     for (let i = 1; i < 11; i++) {
       const severity = Math.floor(Math.random() * 10);
-      this.items.push({
-        severity: severity,
-        title: `Migraine: ${severity} out of 10`,
-        note: 'This is item #' + i,
-        icon: 'flash'
+      this.events.push({
+        severity,
+        areas: [(Object.keys(MigrainePainAreasEnum)[Math.floor(Math.random() * Object.keys(MigrainePainAreasEnum).length)]) as any],
+        symptoms: [(Object.keys(MigraineSymptomsEnum)[Math.floor(Math.random() * Object.keys(MigraineSymptomsEnum).length)]) as any],
+        date: new Date(),
+        generalNotes: 'This is item #' + i
       });
     }
   }
